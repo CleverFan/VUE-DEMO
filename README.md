@@ -1,5 +1,5 @@
 # VUE-DEMO
-some demo for vue study
+some demos for vue study
 
 ## update record
 
