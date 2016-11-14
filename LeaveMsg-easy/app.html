@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LeaveMsg</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/vue.js"></script>
+
+    <script>
+        window.onload = function () {
+            new Vue({
+                el : '#app',
+                data : {
+                    info : [
+                        {username : 'xxx' , content : "xxxx"}
+                    ]
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+    <div class="container" id="app">
+        <form role="form">
+            <div class="form-group">
+                <label for="username">username:</label>
+                <input type="text" id="username" class="form-control">
+                <label for="content">content:</label>
+                <br>
+                <textarea name="content" id="content"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="button" value="add" class="btn btn-primary">
+                <input type="button" value="reset" class="btn btn-danger">
+            </div>
+        </form>
+
+        <hr>
+
+        <table class="table table-bordered table-hover">
+            <caption class="h3 text-info text-center"> leave message </caption>
+            <tr>
+                <th class="text-center">id</th>
+                <th class="text-center">username</th>
+                <th class="text-center">message</th>
+                <th class="text-center">operation</th>
+            </tr>
+
+            <tr class="text-center" v-for="(item, index) in info">
+                <td>{{index+1}}</td>
+                <td>{{item.username}}</td>
+                <td>{{item.content}}</td>
+                <td>
+                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#delete-modal">delete</button>
+                </td>
+            </tr>
+
+            <tr class="text-center" v-show="info.length != 0 ">
+                <td colspan="4">
+                    <button class="btn btn-primary btn-sm">delete all</button>
+                </td>
+            </tr>
+            <tr class="text-center" v-show="info.length == 0">
+                <td colspan="4">
+                    <p>have no infomation</p>
+                </td>
+
+            </tr>
+        </table>
+
+        <!-- model-->
+        <div role="dialog" class="modal fade" id="delete-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                        <h4 class="modal-title">make sure delete?</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <button data-dismiss="modal" class="btn btn-danger btn-sm">no</button>
+                        <button data-dismiss="modal" class="btn btn-danger btn-sm">yes</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
