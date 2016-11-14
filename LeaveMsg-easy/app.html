@@ -18,7 +18,7 @@
                     info :[],
                     username : "",
                     content : "",
-                    indexFlag : -1
+                    indexFlag : -1 //mark the number of td
                 },
                 methods : {
                     addMsg : function () {
@@ -40,8 +40,10 @@
 
                     deleteMsg : function (index) {
                         if(index == -100){
+                            //click delete all
                             this.info = [];
                         } else {
+                            //delete one
                             this.info.splice(index,1);
                         }
 
