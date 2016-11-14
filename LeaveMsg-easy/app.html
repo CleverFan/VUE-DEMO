@@ -93,6 +93,7 @@
                     <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-modal" @click = "indexFlag = -100">delete all</button>
                 </td>
             </tr>
+
             <tr class="text-center" v-show="info.length == 0">
                 <td colspan="4">
                     <p>have no information</p>
@@ -109,7 +110,7 @@
                         <button class="close" data-dismiss="modal">
                             <span>&times;</span>
                         </button>
-                        <h4 class="modal-title">make sure delete?</h4>
+                        <h4 class="modal-title">make sure to delete?</h4>
                     </div>
 
                     <div class="modal-body text-right">
