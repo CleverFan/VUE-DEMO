@@ -4,18 +4,48 @@
     <meta charset="UTF-8">
     <title>LeaveMsg</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/vue.js"></script>
     <script src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/vue.js"></script>
+
 
     <script>
         window.onload = function () {
-            new Vue({
+            //create a vue object
+            var vm = new Vue({
                 el : '#app',
                 data : {
-                    info : [
-                        {username : 'xxx' , content : "xxxx"}
-                    ]
+                    info :[],
+                    username : "",
+                    content : "",
+                    indexFlag : -1
+                },
+                methods : {
+                    addMsg : function () {
+                        //judge if the username and the content have been inputted
+                        if(this.username == "" || this.content == ""){
+                            alert("please input info");
+                            return;
+                        }
+                        //add the info
+                        this.info.push({
+                            username_ : this.username,
+                            content_ : this.content
+                        })
+                        //make textfield empty
+                        this.username = ""
+                        this.content = ""
+
+                    },
+
+                    deleteMsg : function (index) {
+                        if(index == -100){
+                            this.info = [];
+                        } else {
+                            this.info.splice(index,1);
+                        }
+
+                    }
                 }
             });
         };
@@ -26,14 +56,13 @@
         <form role="form">
             <div class="form-group">
                 <label for="username">username:</label>
-                <input type="text" id="username" class="form-control">
+                <input type="text" id="username" class="form-control" v-model="username">
                 <label for="content">content:</label>
                 <br>
-                <textarea name="content" id="content"></textarea>
-            </div>
-            <div class="form-group">
-                <input type="button" value="add" class="btn btn-primary">
-                <input type="button" value="reset" class="btn btn-danger">
+                <input type="text" id="content" class="form-control" v-model="content">
+                <br>
+                <input type="button" value="add" class="btn btn-primary" @click="addMsg()">
+                <input type="reset" value="reset" class="btn btn-danger">
             </div>
         </form>
 
@@ -50,21 +79,21 @@
 
             <tr class="text-center" v-for="(item, index) in info">
                 <td>{{index+1}}</td>
-                <td>{{item.username}}</td>
-                <td>{{item.content}}</td>
+                <td>{{item.username_}}</td>
+                <td>{{item.content_}}</td>
                 <td>
-                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#delete-modal">delete</button>
+                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#delete-modal" @click="indexFlag = index" >delete</button>
                 </td>
             </tr>
 
             <tr class="text-center" v-show="info.length != 0 ">
                 <td colspan="4">
-                    <button class="btn btn-primary btn-sm">delete all</button>
+                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-modal" @click = "indexFlag = -100">delete all</button>
                 </td>
             </tr>
             <tr class="text-center" v-show="info.length == 0">
                 <td colspan="4">
-                    <p>have no infomation</p>
+                    <p>have no information</p>
                 </td>
 
             </tr>
@@ -81,9 +110,9 @@
                         <h4 class="modal-title">make sure delete?</h4>
                     </div>
 
-                    <div class="modal-body">
+                    <div class="modal-body text-right">
                         <button data-dismiss="modal" class="btn btn-danger btn-sm">no</button>
-                        <button data-dismiss="modal" class="btn btn-danger btn-sm">yes</button>
+                        <button data-dismiss="modal" class="btn btn-danger btn-sm" @click = "deleteMsg(indexFlag)">yes</button>
                     </div>
 
                 </div>
