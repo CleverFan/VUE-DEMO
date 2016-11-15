@@ -7,10 +7,74 @@
     <script src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/vue.js"></script>
+
+    <style>
+        #mainBody {
+            padding-right: 200px;
+            padding-left: 200px;
+            padding-top: 50px;
+        }
+    </style>
+
+    <script type="text/x-template" id="chat-header">
+        <div class="col-xs-12 chatHeader">
+            <h1>hh</h1>
+        </div>
+    </script>
+
+    <script type="text/x-template" id="chat-body">
+        <div class="col-xs-12 chatBody">
+            <h1>hh</h1>
+        </div>
+    </script>
+
+    <script type="text/x-template" id="chat-footer">
+        <div class="col-xs-12 chatFooter">
+            <h1>hh</h1>
+        </div>
+    </script>
+
+
+    <script>
+        window.onload = function () {
+
+            var chatHeader = {
+                template: '#chat-header'
+            };
+
+            var chatBody = {
+                template : '#chat-body'
+            };
+
+            var chatFooter = {
+                template : '#chat-footer'
+            }
+
+            var vm = new Vue({
+                el : '#app',
+                data : {
+
+                },
+                methods : {
+
+                },
+                components: {
+                    'chat-header' : chatHeader,
+                    'chat-body' : chatBody,
+                    'chat-footer' : chatFooter
+                }
+            });
+        }
+    </script>
 </head>
 <body>
-    <div class="container">
-        <!--init-->
+    <div class="container-fluid" id="app">
+        <div class="row" id="mainBody">
+            <chat-header></chat-header>
+            <chat-body></chat-body>
+            <chat-footer></chat-footer>
+        </div>
+
     </div>
 </body>
 </html>
