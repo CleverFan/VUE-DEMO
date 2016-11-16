@@ -2,11 +2,57 @@
 <html lang="en">
 <head>
   <title>vue-demo</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <script src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/vue.js"></script>
+
+    <script>
+        window.onload = function () {
+            new Vue ({
+                el : '#app',
+                data : {
+                    info : [
+                        {
+                            name : 'LeaveMsg',
+                            time : '2016.11.16',
+                            content : 'A simple demo which is based on vue2.0 and bootstrap.',
+                            url : '<a href="www.improvecfan.cn:8089/leavemsg">click to see</a>'
+                        }
+                    ]
+                }
+            })
+        }
+    </script>
 </head>
 <body>
- welcome to vue-demo
 
- leavemsg demo : <a>demo.ipmrovecfan.cn:8089/leavemsg</a>
+ <div class="container" id="app">
+     <div class="row" id="mainBody">
+         <h3>welcome to vue-demo</h3>
+         <table class="table table-bordered table-hover">
+             <caption class="h3 text-info text-center"> demo table </caption>
+             <tr>
+                 <th class="text-center">id</th>
+                 <th class="text-center">name</th>
+                 <th class="text-center">time</th>
+                 <th class="text-center">content</th>
+                 <th class="text-center">url</th>
+             </tr>
+
+             <tr v-for="(item , index ) in info " class="text-center">
+                 <td>{{index+1}}</td>
+                 <td>{{item.name}}</td>
+                 <td>{{item.time}}</td>
+                 <td>{{item.content}}</td>
+                 <td v-html="item.url"></td>
+             </tr>
+         </table>
+     </div>
+
+ </div>
+
 
 </body>
 </html>
