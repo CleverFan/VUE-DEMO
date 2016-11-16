@@ -6,11 +6,11 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-router.get('/chatpanel',function (req,res,next) {
+router.get('/ChatPanel',function (req,res,next) {
   res.render('ChatPanel/app')
 });
 
-router.get('/leavemsg',function (req,res,next) {
+router.get('/LeaveMsg',function (req,res,next) {
   res.render('LeaveMsg-easy/app')
 });
 
