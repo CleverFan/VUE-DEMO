@@ -16,7 +16,7 @@ router.get('/LeaveMsg',function (req,res,next) {
 
 router.get('/home',function (req,res,next) {
   res.writeHead(302,{
-    'Location':'http://wwww.improvecfan.cn'
+    'Location':'http://www.improvecfan.cn'
   });
   res.end();
 });
