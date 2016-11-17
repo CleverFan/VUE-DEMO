@@ -1,64 +1,157 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh">
 <head>
-  <title>vue-demo</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
-    <script src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
-    <script src="/javascripts/bootstrap.min.js"></script>
-    <script src="/javascripts/vue.js"></script>
-
-    <script>
-        window.onload = function () {
-            new Vue ({
-                el : '#app',
-                data : {
-                    info : [
-                        {
-                            name : 'LeaveMsg',
-                            time : '2016.11.16',
-                            content : 'A simple demo which is based on vue2.0 and bootstrap.',
-                            url : '<a href="LeaveMsg">click to see</a>'
-                        },
-                        {
-                            name : 'ChatPanel',
-                            time : '2016.11.16',
-                            content : 'A simple chat panel which is based on vue2.0 and bootstrap.',
-                            url : '<a href="ChatPanel">click to see</a>'
-                        }
-                    ]
-                }
-            })
-        }
-    </script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>VUE-DEMO</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/htmleaf-demo.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/jquery.eeyellow.Timeline.css" />
+	<!--[if IE]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
 </head>
 <body>
+	<div class="htmleaf-container">
+		<header class="htmleaf-header">
+			<h1>Demo List <span>use to study</span></h1>
+			<div class="htmleaf-links">
+				<a class="htmleaf-icon icon-htmleaf-home-outline" href="home" title="cf-website" target="_blank"><span> 主页</span></a>
+				<a class="htmleaf-icon icon-htmleaf-arrow-forward-outline" href="goany" title="不知道去哪" target="_blank"><span> 返回下载页</span></a>
+			</div>
+		</header>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="VivaTimeline">
+						<dl>
+	                        <dt>Nov 2016</dt>
+	                        <dd class="pos-left clearfix">
+	                            <div class="circ"></div>
+	                            <div class="time">Nov 15</div>
+	                            <div class="events">
+	                                <div class="events-header">LeaveMsg</div>
+	                                <div class="events-body">                                                                                            
+	                                    <div class="row">
+	                                    	<div class="col-md-6 pull-left">
+	                                            <img class="events-object img-responsive img-rounded" src="/images/le1.png" />
+	                                        </div>
+	                                        <div class="events-desc">
+												<h4>A simple demo based on vue2.0 and bootstrap.</h4>
 
- <div class="container" id="app">
-     <div class="row" id="mainBody">
-         <h3>welcome to vue-demo</h3>
-         <table class="table table-bordered table-hover">
-             <caption class="h3 text-info text-center"> demo table </caption>
-             <tr>
-                 <th class="text-center">id</th>
-                 <th class="text-center">name</th>
-                 <th class="text-center">time</th>
-                 <th class="text-center">content</th>
-                 <th class="text-center">url</th>
-             </tr>
+												<br> <br><br>
 
-             <tr v-for="(item , index ) in info " class="text-center">
-                 <td>{{index+1}}</td>
-                 <td>{{item.name}}</td>
-                 <td>{{item.time}}</td>
-                 <td>{{item.content}}</td>
-                 <td v-html="item.url"></td>
-             </tr>
-         </table>
-     </div>
+												&nbsp;&nbsp;&nbsp;main panel
 
- </div>
+												<br><br><br>
+												&nbsp;&nbsp;&nbsp;<a href="LeaveMsg">click to look</a>
+											</div>
+	                                    </div>      
+	                                    <div class="row">
+	                                    	<div class="col-md-6 pull-left">
+	                                            <img class="events-object img-responsive img-rounded" src="/images/le2.png" />
+	                                        </div>
+	                                        <div class="events-desc">
+												<h4>A simple demo based on vue2.0 and bootstrap.</h4>
 
+												<br><br><br>
 
+												&nbsp;&nbsp;&nbsp;add content panel
+
+												<br><br><br>
+												&nbsp;&nbsp;&nbsp;<a href="LeaveMsg">click to look</a>
+	                                        </div>
+	                                    </div>  
+	                                    <div class="row">
+	                                    	<div class="col-md-6 pull-left">
+	                                            <img class="events-object img-responsive img-rounded" src="/images/le3.png" />
+	                                        </div>
+	                                        <div class="events-desc">
+												<h4>A simple demo based on vue2.0 and bootstrap.</h4>
+
+												<br><br><br>
+
+												&nbsp;&nbsp;&nbsp;delete panel
+
+												<br><br><br>
+												&nbsp;&nbsp;&nbsp;<a href="LeaveMsg">click to look</a>
+	                                        </div>
+	                                    </div>                                    
+	                                </div>   
+	                                <div class="events-footer">
+	                                	123
+	                                </div>                               
+	                            </div>
+	                        </dd>
+	                        <dt>Oct 2016</dt>
+	                        <dd class="pos-right clearfix">
+	                            <div class="circ"></div>
+	                            <div class="time">Oct 28</div>
+	                            <div class="events">
+	                                <div class="events-header">ChatPanel</div>
+	                                <div class="events-body">                                                                                            
+	                                    <div class="row">
+	                                    	<div class="col-md-6 pull-left">
+	                                            <img class="events-object img-responsive img-rounded" src="/images/ch1.png" />
+	                                        </div>
+	                                        <div class="events-desc">
+												<h4>A simple demo based on vue2.0 and bootstrap.</h4>
+
+												<br><br><br>
+
+												&nbsp;&nbsp;&nbsp;can't finish
+
+												<br><br><br>
+												&nbsp;&nbsp;&nbsp;<a href="ChatPanel">click to look</a>	                                        </div>
+	                                    </div>
+									</div>
+
+	                                <div class="events-footer">
+	                                	
+	                                </div>                                                       
+	                            </div>
+	                        </dd>   
+	                        <dd class="pos-left clearfix">
+	                            <div class="circ"></div>
+	                            <div class="time">Oct 27</div>
+	                            <div class="events">
+	                                <div class="events-header">Start study!!</div>
+	                                <div class="events-body">                                                                                            
+	                                    <div class="row">
+	                                    	<div class="col-md-6 pull-left">
+	                                            <img class="events-object img-responsive img-rounded" src="/images/my.jpg" />
+	                                        </div>
+	                                        <div class="events-desc">
+												<h4>Form now , I will be better and better, study makes me happy.</h4>
+	                                        </div>
+	                                    </div>
+	                                </div>                                
+	                            </div>
+	                        </dd>                                    
+	                        <dt>Jan 2016</dt>                        
+	                        <dt>Dec 2015</dt>
+	                        <dt>Oct 2015</dt>
+	                        <dt>Sep 2015</dt>
+	                        <dt>Aug 2015</dt>
+	                    </dl>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+	<script src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+	<script src="/javascripts/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.eeyellow.Timeline.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.VivaTimeline').vivaTimeline({
+				carousel: true,
+				carouselTime: 3000
+			});
+		});
+	</script>
 </body>
 </html>
